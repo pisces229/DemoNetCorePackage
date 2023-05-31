@@ -3,27 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoAutoMapper", "DemoNetCorePackage.DemoAutoMapper\DemoNetCorePackage.DemoAutoMapper.csproj", "{A64F2F34-2860-4B4E-BCBC-C2C51BF87527}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoAutoMapper", "DemoAutoMapper\DemoAutoMapper.csproj", "{A64F2F34-2860-4B4E-BCBC-C2C51BF87527}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoReactive", "DemoNetCorePackage.DemoReactive\DemoNetCorePackage.DemoReactive.csproj", "{003EDD84-41F6-4473-A981-C247CA6D890E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoReactive", "DemoReactive\DemoReactive.csproj", "{003EDD84-41F6-4473-A981-C247CA6D890E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoRestSharp", "DemoNetCorePackage.DemoRestSharp\DemoNetCorePackage.DemoRestSharp.csproj", "{ABDD7B6A-1CDE-4FE5-A2B3-CDFC35894AB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoRestSharp", "DemoRestSharp\DemoRestSharp.csproj", "{ABDD7B6A-1CDE-4FE5-A2B3-CDFC35894AB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoItext7", "DemoNetCorePackage.DemoItext7\DemoNetCorePackage.DemoItext7.csproj", "{1DCDD1A8-4374-48B8-8D67-40F791441229}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoItext7", "DemoItext7\DemoItext7.csproj", "{1DCDD1A8-4374-48B8-8D67-40F791441229}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoExpression", "DemoNetCorePackage.DemoExpression\DemoNetCorePackage.DemoExpression.csproj", "{7A0FB784-00D3-4059-B58F-3A85B987BFD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoExpression", "DemoExpression\DemoExpression.csproj", "{7A0FB784-00D3-4059-B58F-3A85B987BFD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoNCrontab", "DemoNetCorePackage.DemoNCrontab\DemoNetCorePackage.DemoNCrontab.csproj", "{71757A74-30A4-49B0-942A-99429EB2154A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoNCrontab", "DemoNCrontab\DemoNCrontab.csproj", "{71757A74-30A4-49B0-942A-99429EB2154A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoNAudio", "DemoNetCorePackage.DemoNAudio\DemoNetCorePackage.DemoNAudio.csproj", "{2A169744-E574-4D52-9D06-F27397F363FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoNAudio", "DemoNAudio\DemoNAudio.csproj", "{2A169744-E574-4D52-9D06-F27397F363FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoHttpWebRequest", "DemoNetCorePackage.DemoHttpWebRequest\DemoNetCorePackage.DemoHttpWebRequest.csproj", "{703B1372-7605-43FF-9DCB-A8BEE39172EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoHttpWebRequest", "DemoHttpWebRequest\DemoHttpWebRequest.csproj", "{703B1372-7605-43FF-9DCB-A8BEE39172EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoObjectPool", "DemoNetCorePackage.DemoObjectPool\DemoNetCorePackage.DemoObjectPool.csproj", "{191717B8-AAC6-4734-8029-2712C409BFC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoObjectPool", "DemoObjectPool\DemoObjectPool.csproj", "{191717B8-AAC6-4734-8029-2712C409BFC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoDrawingCommon", "DemoNetCorePackage.DemoDrawingCommon\DemoNetCorePackage.DemoDrawingCommon.csproj", "{9D79583B-35EC-4928-B3CC-59DC41B49D58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoDrawingCommon", "DemoDrawingCommon\DemoDrawingCommon.csproj", "{9D79583B-35EC-4928-B3CC-59DC41B49D58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoNetCorePackage.DemoMediatR", "DemoNetCorePackage.DemoMediatR\DemoNetCorePackage.DemoMediatR.csproj", "{DEBC5E41-482C-4C41-83D0-C33E3920B9FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoMediatR", "DemoMediatR\DemoMediatR.csproj", "{DEBC5E41-482C-4C41-83D0-C33E3920B9FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoDocumentFormatOpenXml", "DemoDocumentFormatOpenXml\DemoDocumentFormatOpenXml.csproj", "{76392B60-BF61-47D9-9718-9C762C13D1F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{DEBC5E41-482C-4C41-83D0-C33E3920B9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEBC5E41-482C-4C41-83D0-C33E3920B9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEBC5E41-482C-4C41-83D0-C33E3920B9FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76392B60-BF61-47D9-9718-9C762C13D1F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76392B60-BF61-47D9-9718-9C762C13D1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76392B60-BF61-47D9-9718-9C762C13D1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76392B60-BF61-47D9-9718-9C762C13D1F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
