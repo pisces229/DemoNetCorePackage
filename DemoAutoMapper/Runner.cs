@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DemoAutoMapper.Dtos;
 using System.Text.Json;
 
 namespace DemoAutoMapper
@@ -17,11 +18,15 @@ namespace DemoAutoMapper
         {
             var mapperConfiguration = new MapperConfiguration(configure => {
                 //configure.AllowNullDestinationValues = false;
-                configure.CreateMap<FirstDto, SecondDto>()
-                    .ForMember(member => member.Id, option => option.MapFrom(source => Convert.ToInt32(source.No)));
+                //configure.SourceMemberNamingConvention = new LowerUnderscoreNamingConvention();
+                //configure.DestinationMemberNamingConvention = new PascalCaseNamingConvention();
+                //configure.CreateMap<FirstDto, SecondDto>()
+                //    .ForMember(member => member.Id, option => option.MapFrom(source => Convert.ToInt32(source.No)));
+                configure.AddProfile<DtoProfile>();
             });
-            mapperConfiguration.AssertConfigurationIsValid();
+            //mapperConfiguration.AssertConfigurationIsValid();
             var mapper = mapperConfiguration.CreateMapper();
+            //mapperConfiguration.CompileMappings();
             var firstDtos = new List<FirstDto>() 
             {
                 new FirstDto() {
@@ -31,23 +36,20 @@ namespace DemoAutoMapper
                 }
             };
             Console.WriteLine(JsonSerializer.Serialize(firstDtos, _jsonSerializerOptions));
-            var secondDtos = mapper.Map<IEnumerable<SecondDto>>(firstDtos);
+            var secondDtos = mapper.Map<IEnumerable<FirstDto>, IEnumerable<SecondDto>>(firstDtos);
+            //var secondDtos = mapper.Map<FirstDto, SecondDto>(firstDtos.First(), opt => 
+            //{
+            //    opt.BeforeMap((src, dest) =>
+            //    {
+            //        src.Name += "@";
+            //    });
+            //    opt.AfterMap((src, dest) =>
+            //    {
+            //        dest.Name += "#";
+            //    });
+            //});
             Console.WriteLine(JsonSerializer.Serialize(secondDtos, _jsonSerializerOptions));
             return Task.CompletedTask;
-        }
-        private class FirstDto
-        {
-            public string? Id { get; set; }
-            public string? No { get; set; }
-            public string? Name { get; set; }
-            public string? Address { get; set; }
-        }
-        private class SecondDto
-        {
-            public string? Id { get; set; }
-            public int? No { get; set; }
-            public string? Name { get; set; }
-            public string? Birthday { get; set; }
         }
     }
 }
