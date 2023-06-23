@@ -23,6 +23,7 @@ namespace DemoAutoMapper
                 //configure.CreateMap<FirstDto, SecondDto>()
                 //    .ForMember(member => member.Id, option => option.MapFrom(source => Convert.ToInt32(source.No)));
                 configure.AddProfile<DtoProfile>();
+                configure.AddMaps(new[] { "DemoAutoMapper" });
             });
             //mapperConfiguration.AssertConfigurationIsValid();
             var mapper = mapperConfiguration.CreateMapper();
