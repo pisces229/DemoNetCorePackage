@@ -3,7 +3,7 @@
 try
 {
     var runner = new Runner();
-    runner.Run().Wait();
+    await runner.Run();
 }
 catch (Exception e)
 {
