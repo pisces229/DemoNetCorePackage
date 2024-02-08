@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DemoMediatR.RequestHandlerService
+namespace DemoMediatR.RequestHandlers
 {
     public class SendResponse
     {
