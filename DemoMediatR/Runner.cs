@@ -18,9 +18,9 @@ namespace DemoMediatR
         }
         public async Task Run()
         {
-            await RunEventBus();
-            //await RunNotificationHandler();
-            //await RunRequestHandler();
+            //await RunEventBus();
+            await RunNotificationHandler();
+            await RunRequestHandler();
         }
         private Task RunEventBus()
         {

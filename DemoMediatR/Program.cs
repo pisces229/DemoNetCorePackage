@@ -2,31 +2,47 @@
 using DemoMediatR.NotificationHandlers;
 using DemoMediatR.RequestHandlers;
 using MediatR;
+using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 var services = new ServiceCollection();
 
 // MediatR services
-services.AddMediatR(Assembly.GetExecutingAssembly());
-//services.AddMediatR(typeof(AddPersonCommand).GetTypeInfo().Assembly);
+Console.WriteLine(Assembly.GetExecutingAssembly().FullName);
+//services.AddMediatR(Assembly.GetExecutingAssembly());
 //services.AddMediatR(cfg =>
 //{
-//    //cfg.RegisterServicesFromAssembly(typeof(Startup).Assembly);
-//    //cfg.AddBehavior<PingPongBehavior>();
-//    //cfg.AddStreamBehavior<PingPongStreamBehavior>();
-//    //cfg.AddRequestPreProcessor<PingPreProcessor>();
-//    //cfg.AddRequestPostProcessor<PingPongPostProcessor>();
-//    //cfg.AddOpenBehavior(typeof(GenericBehavior<,>));
+//    //...
 //}, Assembly.GetExecutingAssembly());
+services.AddMediatR(typeof(IMediator));
+//typeof(IMediator)
+//typeof(INotificationHandler<>)
+//typeof(IRequestPreProcessor<>)
+//typeof(IRequestPostProcessor<,>)
+//typeof(IRequestExceptionHandler<,,>)
+//typeof(IRequestExceptionAction<,>)
+//services.AddMediatR(cfg =>
+//{
+//    //...
+//    cfg.RequestExceptionActionProcessorStrategy = RequestExceptionActionProcessorStrategy.ApplyForAllExceptions;
+//}, typeof(IMediator));
 
-// don't add any notification handler service
-//services.AddTransient<INotificationHandler<NotificationRequest>, NotificationRequestHandlerFirst>();
+// Priority...
+services.AddTransient<INotificationHandler<NotificationRequest>, NotificationRequestHandlerFirst>();
+services.AddTransient<INotificationHandler<NotificationRequest>, NotificationRequestHandlerSecond>();
 //services.AddTransient<INotificationHandler<NotificationRequest>, NotificationRequestHandlerSecond>();
+//services.AddTransient<INotificationHandler<NotificationRequest>, NotificationRequestHandlerFirst>();
 
-// lifetime
-//services.AddTransient<IRequestHandler<SendRequest, SendResponse>, SendRequestHandler>();
-//services.AddScoped<IRequestHandler<SendRequest, SendResponse>, SendRequestHandler>();
+// Handler
+services.AddTransient<IRequestHandler<SendRequest, SendResponse>, SendRequestHandler>();
+// ExceptionHandler, ExceptionAction
+services.AddTransient<IRequestExceptionHandler<SendRequest, SendResponse, Exception>, SendExceptionHandler>();
+services.AddTransient<IRequestExceptionAction<SendRequest, Exception>, SendExceptionAction>();
+// IRequestExceptionHandler
+//services.AddTransient(typeof(IRequestExceptionHandler<,,>), typeof(LoggingExceptionHandler<,,>));
+//services.AddTransient<IRequestExceptionHandler<SendRequest, SendResponse, Exception>, 
+//    LoggingExceptionHandler<SendRequest, SendResponse, Exception>>();
 
 services.AddScoped<Runner>();
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DemoMediatR.RequestHandlers
 {
-    public class SendExceptionAction : IRequestExceptionAction<SendRequest>
+    public class SendExceptionAction : IRequestExceptionAction<SendRequest, Exception>
     {
         public Task Execute(SendRequest request, Exception exception, CancellationToken cancellationToken)
         {
