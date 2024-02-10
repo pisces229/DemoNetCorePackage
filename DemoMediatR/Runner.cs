@@ -40,7 +40,15 @@ namespace DemoMediatR
             eventBus.Subscribe<DemoEvent2>(x => Console.WriteLine("Received Event2: " + x.Message));
             eventBus.Publish(new DemoEvent1
             {
-                Message = "Hello, world!"
+                Message = "DemoEvent1 First"
+            }); 
+            eventBus.Publish(new DemoEvent2
+            {
+                Message = "DemoEvent2 First"
+            });
+            eventBus.Publish(new DemoEvent1
+            {
+                Message = "DemoEvent1 Second"
             });
             return Task.CompletedTask;
         }
