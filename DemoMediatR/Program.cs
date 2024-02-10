@@ -9,7 +9,7 @@ using System.Reflection;
 var services = new ServiceCollection();
 
 // MediatR services
-Console.WriteLine(Assembly.GetExecutingAssembly().FullName);
+//Console.WriteLine(Assembly.GetExecutingAssembly().FullName);
 //services.AddMediatR(Assembly.GetExecutingAssembly());
 //services.AddMediatR(cfg =>
 //{

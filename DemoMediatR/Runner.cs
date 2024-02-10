@@ -1,6 +1,7 @@
 ﻿using DemoMediatR.EventBus;
 using DemoMediatR.NotificationHandlers;
 using DemoMediatR.RequestHandlers;
+using DemoMediatR.SimpleEvent;
 using MediatR;
 
 namespace DemoMediatR
@@ -18,17 +19,26 @@ namespace DemoMediatR
         }
         public async Task Run()
         {
+            await RunSimpleEvent();
             //await RunEventBus();
-            await RunNotificationHandler();
-            await RunRequestHandler();
+            //await RunNotificationHandler();
+            //await RunRequestHandler();
+        }
+        private Task RunSimpleEvent()
+        {
+            var customer = new Customer();
+            var waiter = new Waiter();
+            customer.OrderEvent += Waiter.Action;
+            customer.Action();
+            return Task.CompletedTask;
         }
         private Task RunEventBus()
         {
             var eventBus = new DemoEventBus();
-            eventBus.Subscribe<Event1>(x => Console.WriteLine("Received Event1: " + x.Message));
-            eventBus.Subscribe<Event1>(x => Console.WriteLine("Received Event1: " + x.Message));
-            eventBus.Subscribe<Event2>(x => Console.WriteLine("Received Event2: " + x.Message));
-            eventBus.Publish(new Event1
+            eventBus.Subscribe<DemoEvent1>(x => Console.WriteLine("Received Event1: " + x.Message));
+            eventBus.Subscribe<DemoEvent1>(x => Console.WriteLine("Received Event1: " + x.Message));
+            eventBus.Subscribe<DemoEvent2>(x => Console.WriteLine("Received Event2: " + x.Message));
+            eventBus.Publish(new DemoEvent1
             {
                 Message = "Hello, world!"
             });
