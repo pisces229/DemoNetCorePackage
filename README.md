@@ -35,3 +35,7 @@
 ## ncrontab
 
 ## Microsoft.Extensions.ObjectPool
+
+## Fluent Validation
+
+[github(https://github.com/FluentValidation/FluentValidation)
