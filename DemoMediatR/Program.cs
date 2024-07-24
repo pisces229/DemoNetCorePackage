@@ -9,13 +9,14 @@ using System.Reflection;
 var services = new ServiceCollection();
 
 // MediatR services
+services.AddMediatR(c => c.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 //Console.WriteLine(Assembly.GetExecutingAssembly().FullName);
 //services.AddMediatR(Assembly.GetExecutingAssembly());
 //services.AddMediatR(cfg =>
 //{
 //    //...
 //}, Assembly.GetExecutingAssembly());
-services.AddMediatR(typeof(IMediator));
+//services.AddMediatR(typeof(IMediator));
 //typeof(IMediator)
 //typeof(INotificationHandler<>)
 //typeof(IRequestPreProcessor<>)
