@@ -19,8 +19,10 @@ namespace DemoFluentValidation
             logger.LogInformation(result.IsValid.ToString());
             foreach (var failure in result.Errors)
             {
-                logger.LogInformation("Property {0} failed validation. Error was: {1}",
-                    failure.PropertyName, failure.ErrorMessage);
+                logger.LogInformation("PropertyName: '{PropertyName}'.", failure.PropertyName);
+                logger.LogInformation("ErrorMessage: '{ErrorMessage}'.", failure.ErrorMessage);
+                logger.LogInformation("ErrorCode: '{ErrorCode}'.", failure.ErrorCode);
+                logger.LogInformation("Severity: '{Severity}'.", failure.Severity);
             }
             logger.LogInformation(result.ToString("~"));
         }

@@ -24,11 +24,11 @@ namespace DemoFluentValidation.Validators
         {
             _logger = logger;
             _dbContext = dbContext;
-            RuleFor(customer => customer.Surname)
-                .NotNull().WithName("Surname".ToUpper());
-            RuleFor(customer => customer.Forename)
-                .NotNull().WithName("Surname".ToUpper())
-                .NotEqual("foo").WithName("Surname".ToUpper());
+            //RuleFor(customer => customer.Surname)
+            //    .NotNull().WithName("Surname".ToUpper());
+            //RuleFor(customer => customer.Forename)
+            //    .NotNull().WithName("Surname".ToUpper())
+            //    .NotEqual("foo").WithName("Surname".ToUpper());
             //RuleFor(customer => customer.Surname)
             //    .NotNull().WithMessage("{PropertyName} NotNull()");
             //RuleFor(customer => customer.Forename)
@@ -39,7 +39,7 @@ namespace DemoFluentValidation.Validators
             //RuleFor(customer => customer).Must(MustValidate).WithMessage("MustValidate Fail. Argument: {Item}.");
             //RuleFor(customer => customer.Surname).MustAsync(MustValidateAsync).WithMessage("MustValidateAsync Fail.");
 
-            //RuleFor(customer => customer).CustomerValide().WithName("Surname".ToUpper());
+            RuleFor(customer => customer).CustomerValide().WithName("Surname".ToUpper());
         }
 
         //private bool MustValidate(Customer typeObject, ValidationContext<Customer> context)
@@ -81,7 +81,6 @@ namespace DemoFluentValidation.Validators
         public override string Name => "CustomerPropertyValidator";
         public override bool IsValid(ValidationContext<T> context, TProperty value)
         {
-            Console.WriteLine(value);
             return false;
         }
         protected override string GetDefaultMessageTemplate(string errorCode) => "CustomerPropertyValidator: '{PropertyName}'.";

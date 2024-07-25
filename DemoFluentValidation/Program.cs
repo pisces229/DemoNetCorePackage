@@ -10,6 +10,7 @@ hostbuilder.ConfigureServices((hostContext, services) =>
 {
     services.AddHostedService<HostedService>();
 
+    //ValidatorOptions.Global.Severity = Severity.Info;
     // Dependency Injection
     services.AddScoped<IValidator<Customer>, CustomerValidator>();
     // Automatic registration
