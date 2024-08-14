@@ -24,11 +24,13 @@ namespace DemoFluentValidation.Validators
         {
             _logger = logger;
             _dbContext = dbContext;
-            //RuleFor(customer => customer.Surname)
-            //    .NotNull().WithName("Surname".ToUpper());
-            //RuleFor(customer => customer.Forename)
-            //    .NotNull().WithName("Surname".ToUpper())
-            //    .NotEqual("foo").WithName("Surname".ToUpper());
+            RuleFor(customer => customer.Surname)
+                .NotNull().WithName("Surname".ToUpper());
+            RuleFor(customer => customer.Forename)
+                //.Cascade(CascadeMode.Stop)
+                //.NotNull().WithName("Forename".ToUpper())
+                .NotEmpty().WithName("Forename".ToUpper())
+                .NotEqual("").WithName("Forename".ToUpper());
             //RuleFor(customer => customer.Surname)
             //    .NotNull().WithMessage("{PropertyName} NotNull()");
             //RuleFor(customer => customer.Forename)
@@ -39,7 +41,7 @@ namespace DemoFluentValidation.Validators
             //RuleFor(customer => customer).Must(MustValidate).WithMessage("MustValidate Fail. Argument: {Item}.");
             //RuleFor(customer => customer.Surname).MustAsync(MustValidateAsync).WithMessage("MustValidateAsync Fail.");
 
-            RuleFor(customer => customer).CustomerValide().WithName("Surname".ToUpper());
+            //RuleFor(customer => customer).CustomerValide().WithName("Surname".ToUpper());
         }
 
         //private bool MustValidate(Customer typeObject, ValidationContext<Customer> context)
