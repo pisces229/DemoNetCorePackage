@@ -1,41 +1,40 @@
-﻿using FluentValidation;
-using DemoFluentValidation.Validators;
+﻿using DemoFluentValidation.Requests;
+using FluentValidation;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
 
 namespace DemoFluentValidation
 {
-    public class Runner(ILogger<Runner> logger,
-        IValidator<Customer> validator)
+    public class Runner(ILogger<Runner> _logger,
+        IValidator<CustomerRequest> _validator)
     {
         public async Task Run()
         {
-            var instance = new Customer()
+            var instance = new CustomerRequest()
             {
                 //Surname = "Surname",
                 Forename = "",
             };
             //var result = _validator.Validate(instance);
-            logger.LogInformation("----------");
-            var result = await validator.ValidateAsync(instance);
-            logger.LogInformation(result.IsValid.ToString());
+            _logger.LogInformation("----------");
+            var result = await _validator.ValidateAsync(instance);
+            _logger.LogInformation(result.IsValid.ToString());
             foreach (var failure in result.Errors)
             {
-                logger.LogInformation("PropertyName: '{PropertyName}'.", failure.PropertyName);
-                logger.LogInformation("ErrorMessage: '{ErrorMessage}'.", failure.ErrorMessage);
-                logger.LogInformation("ErrorCode: '{ErrorCode}'.", failure.ErrorCode);
-                logger.LogInformation("Severity: '{Severity}'.", failure.Severity);
+                _logger.LogInformation("PropertyName: '{PropertyName}'.", failure.PropertyName);
+                _logger.LogInformation("ErrorMessage: '{ErrorMessage}'.", failure.ErrorMessage);
+                _logger.LogInformation("ErrorCode: '{ErrorCode}'.", failure.ErrorCode);
+                _logger.LogInformation("Severity: '{Severity}'.", failure.Severity);
             }
-            logger.LogInformation(result.ToString("~"));
-            logger.LogInformation("----------");
+            _logger.LogInformation(result.ToString("~"));
+            _logger.LogInformation("----------");
             var dictionary = result.ToDictionary();
             foreach (var key in dictionary.Keys)
             {
                 var errorMessages = dictionary[key];
-                logger.LogInformation("key: '{key}'.", key);
-                logger.LogInformation("errorMessage: '{errorMessage}'.", string.Join("|", errorMessages));
+                _logger.LogInformation("key: '{key}'.", key);
+                _logger.LogInformation("errorMessage: '{errorMessage}'.", string.Join("|", errorMessages));
             }
-            logger.LogInformation("----------");
+            _logger.LogInformation("----------");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DemoFluentValidation;
+using DemoFluentValidation.Requests;
 using DemoFluentValidation.Validators;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +13,7 @@ hostbuilder.ConfigureServices((hostContext, services) =>
 
     //ValidatorOptions.Global.Severity = Severity.Info;
     // Dependency Injection
-    services.AddScoped<IValidator<Customer>, CustomerValidator>();
+    services.AddScoped<IValidator<CustomerRequest>, CustomerValidator>();
     // Automatic registration
     // Load using a type reference rather than the generic.
     //services.AddValidatorsFromAssemblyContaining<CustomerValidator>(ServiceLifetime.Scoped);
