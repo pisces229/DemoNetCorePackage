@@ -2,6 +2,7 @@
 
 try
 {
+    Console.WriteLine("try...");
     var runner = new Runner();
     runner.Run().Wait();
 }
@@ -11,5 +12,5 @@ catch (Exception e)
 }
 finally
 {
-    Console.WriteLine("Finally");
+    Console.WriteLine("finally...");
 }

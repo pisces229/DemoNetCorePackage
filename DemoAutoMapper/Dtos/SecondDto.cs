@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace DemoAutoMapper.Dtos
+﻿namespace DemoAutoMapper.Dtos
 {
-    internal class SecondDto
+    public class SecondDto
     {
         public string? Id { get; set; }
         public int? No { get; set; }

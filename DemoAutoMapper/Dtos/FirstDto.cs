@@ -1,10 +1,7 @@
-﻿using AutoMapper;
-using System;
-
-namespace DemoAutoMapper.Dtos
+﻿namespace DemoAutoMapper.Dtos
 {
     //[AutoMap(typeof(SecondDto))]
-    internal class FirstDto
+    public class FirstDto
     {
         public string? Id { get; set; }
         public string? No { get; set; }
